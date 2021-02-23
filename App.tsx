@@ -1,32 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Image} from 'react-native';
+import EnTete from './components/EnTete';
+import Corps from './components/Corps';
 
-export default function App() {
-  const [data, setData] = useState([]);
-  fetch("https://balldontlie.io/api/v1/games?start_date=2021-02-17&end_date=2021-02-17")
-  .then(response => response.json())
-  .then(res => setData(res));
-
-  let fstTeam : string = data["data"][0]["home_team"]["full_name"];
-  let scdTeam : string = data["data"][0]["visitor_team"]["full_name"];
-  
-  return (
-    <View style={styles.container}>
-      <Text>Hi Kaled!</Text>
-      <Image source={{uri : "https://reactnative.dev/docs/assets/p_cat1.png"}}
-      style = {{width : 200, height : 200}}/>
-      <Text>The next match of the day will be : {fstTeam} VS {scdTeam}</Text>
-      <Text>The choc of titans!</Text>
+const App = () =>{
+  return(
+    <View style={{backgroundColor:'purple', flex:1, flexDirection:'column'}}>
+      <EnTete/>
+      <Corps/>
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const ceStyle = StyleSheet.create({
+  corps2:{
+    height:200,
+    backgroundColor:'yellow'
   },
-});
+  text:{
+    fontSize:20,
+    color:'black',
+    height:200
+  }
+})
+export default App;
