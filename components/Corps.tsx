@@ -21,7 +21,7 @@ const getData = () => {
 }
 const getFormatData = () =>{
   let newData:Array<MatchDate> = [];
-  let data:Object = getData;
+  let data = getData;
   for (const match in data[0]){
     newData.push({
       fstTeam: match['home_team']['full_name'],
@@ -31,28 +31,84 @@ const getFormatData = () =>{
   return newData;
 }
 
-const Corps = ()=>{
-  let newData:Array<MatchDate> = getFormatData();
-  return(
-    <Text>{newData[0].fstTeam}</Text>
-  )
-}
-/*
+let matchs = [
+  {
+    fstTeam:'Boston',
+    scdTeam:'Cleveland'
+  },
+  {
+    fstTeam:'Celtics',
+    scdTeam:'Warriors'
+  },
+  {
+    fstTeam:'Clippers',
+    scdTeam:'Hornets'
+  },
+  {
+    fstTeam:'6ters',
+    scdTeam:'Bulls'
+  },
+  {
+    fstTeam:'Knicks',
+    scdTeam:'Utah'
+  },
+    {
+    fstTeam:'Boston',
+    scdTeam:'Cleveland'
+  },
+  {
+    fstTeam:'Celtics',
+    scdTeam:'Warriors'
+  },
+  {
+    fstTeam:'Clippers',
+    scdTeam:'Hornets'
+  },
+  {
+    fstTeam:'6ters',
+    scdTeam:'Bulls'
+  },
+  {
+    fstTeam:'Knicks',
+    scdTeam:'Utah'
+  },
+  {
+    fstTeam:'Boston',
+    scdTeam:'Cleveland'
+  },
+  {
+    fstTeam:'Celtics',
+    scdTeam:'Warriors'
+  },
+  {
+    fstTeam:'Clippers',
+    scdTeam:'Hornets'
+  },
+  {
+    fstTeam:'6ters',
+    scdTeam:'Bulls'
+  },
+  {
+    fstTeam:'Knicks',
+    scdTeam:'Utah'
+  }
+]
+
 const Corps = () => {
   return(
-    <View style={corpsStyle.corpsView}>
+    <View style={corpsStyle.view}>
       <FlatList 
-        data ={getFormatData()} 
+        data ={matchs} 
         renderItem = {({item})=> 
           <Item fstTeam={item.fstTeam} scdTeam ={item.scdTeam}/>} 
       />
     </View>
   );
   }
-*/
+
 const corpsStyle = StyleSheet.create({
-  corpsView:{
-    height:300
+  view:{
+    flex:1
   }
 })
 export default Corps;
