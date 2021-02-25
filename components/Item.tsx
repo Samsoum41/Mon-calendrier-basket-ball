@@ -1,14 +1,20 @@
 import React from 'react';
 import {View, Image, Text, StyleSheet} from 'react-native';
 import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 const Item = (props) =>{
     let [fontsLoaded] = useFonts({'Tillilium':require('../font/Titillium_Web/TitilliumWeb-Regular.ttf')})
-    return(
-        <View style={style.item}>
-            <Text style={style.text}>{props.fstTeam} VS {props.scdTeam}</Text>
-        </View>
-    );
+    if (!fontsLoaded){
+        return(<AppLoading/>)
+    }
+    else {
+        return(
+            <View style={style.item}>
+                <Text style={style.text}>{props.fstTeam} VS {props.scdTeam}</Text>
+            </View>
+        );
+    }
 }
 
 const style = StyleSheet.create({
